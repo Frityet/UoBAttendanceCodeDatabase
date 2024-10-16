@@ -1,0 +1,5 @@
+bin
+obj
+attendance-codes.db
+attendance-codes.db-shm
+attendance-codes.db-wal
