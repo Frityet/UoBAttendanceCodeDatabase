@@ -1,5 +1,6 @@
 module UoBAttendanceCodeDatabase.Server.Database
 
+open System.IO
 open Microsoft.EntityFrameworkCore
 open UoBAttendanceCodeDatabase.Server.Models.AttendanceCodes
 
@@ -13,7 +14,7 @@ type AttendanceCodeContext() =
         and set v = this.attendanceCodes <- v
 
     override this.OnConfiguring(optionsBuilder: DbContextOptionsBuilder) =
-        optionsBuilder.UseSqlite("Data Source=attendance-codes.db") |> ignore
+        optionsBuilder.UseSqlite $"Data Source={Directory.GetCurrentDirectory()}/db/attendance-codes.db" |> ignore
 
 let initializeDatabase() =
     use context = new AttendanceCodeContext()
