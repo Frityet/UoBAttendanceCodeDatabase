@@ -80,11 +80,12 @@ let configureServices (services: IServiceCollection) =
     services.AddGiraffe() |> ignore
     services.AddDbContext<Database.AttendanceCodeContext>() |> ignore
 
-let configureLogging (builder: ILoggingBuilder) =
+let configureLogging(builder: ILoggingBuilder) =
     builder.AddConsole()
     #if DEBUG
-           .AddDebug() |> ignore
+           .AddDebug()
     #endif
+            |> ignore
 
 [<EntryPoint>]
 let main args =
