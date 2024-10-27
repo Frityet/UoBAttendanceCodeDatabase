@@ -1,10 +1,10 @@
 module UoBAttendanceCodeDatabase.Server.Database
 
-open System.IO
 open Microsoft.EntityFrameworkCore
+open Microsoft.Extensions.Logging
 open UoBAttendanceCodeDatabase.Server.Models.AttendanceCodes
 
-type AttendanceCodeContext() =
+type AttendanceCodeContext(logger: ILogger) =
     inherit DbContext()
     
     [<DefaultValue>]
@@ -14,8 +14,9 @@ type AttendanceCodeContext() =
         and set v = this.attendanceCodes <- v
 
     override this.OnConfiguring(optionsBuilder: DbContextOptionsBuilder) =
-        optionsBuilder.UseSqlite $"Data Source={Directory.GetCurrentDirectory()}/db/attendance-codes.db" |> ignore
+        logger.LogInformation("Configuring in-memory database connection.")
+        optionsBuilder.UseInMemoryDatabase("AttendanceCodeDb") |> ignore
 
-let initializeDatabase() =
-    use context = new AttendanceCodeContext()
+let initializeDatabase logger =
+    use context = new AttendanceCodeContext(logger)
     context.Database.EnsureCreated() |> ignore

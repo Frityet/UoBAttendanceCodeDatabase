@@ -20,6 +20,7 @@ COPY --from=build /app/out .
 
 # Make sure SQLite database has persistence
 VOLUME /app/db
+RUN mkdir -p /app/db
 
 # Set the environment for ASP.NET Core
 ENV ASPNETCORE_URLS=http://+:80
