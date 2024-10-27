@@ -76,6 +76,7 @@ let configureApp (app: IApplicationBuilder) =
 let configureServices (services: IServiceCollection) =
     services.AddCors()    |> ignore
     services.AddGiraffe() |> ignore
+    services.AddLogging() |> ignore
     services.AddDbContext<Database.AttendanceCodeContext>() |> ignore
     Database.initializeDatabase (services.BuildServiceProvider().GetService<ILogger<Database.AttendanceCodeContext>>())
 
