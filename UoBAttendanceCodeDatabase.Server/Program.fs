@@ -14,7 +14,7 @@ open Microsoft.AspNetCore.Http
 let indexHandler (next: HttpFunc) (ctx: HttpContext) =
     task {
         let db = ctx.GetService<Database.AttendanceCodeContext>()
-        return! htmlView (Views.Index.index { Codes = db.AttendanceCodes |> Seq.toList }) next ctx
+        return! htmlView (Views.Index.index { Codes = db.AttendanceCodes |> Seq.toList } ) next ctx
     }
 
 let addCodeHandler (next: HttpFunc) (ctx: HttpContext) =
