@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for uobattendancecodedatabase on 2024-10-20T19:13:49+01:00
+# fly.toml app configuration file generated for uobattendancecodedatabase on 2025-03-28T22:38:33Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -7,10 +7,6 @@ app = 'uobattendancecodedatabase'
 primary_region = 'lhr'
 
 [build]
-
-[[mounts]]
-  source = 'db'
-  destination = '/app/db'
 
 [http_service]
   internal_port = 80
