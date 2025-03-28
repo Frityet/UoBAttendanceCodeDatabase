@@ -17,12 +17,19 @@ let indexHandler (next: HttpFunc) (ctx: HttpContext) =
         return! htmlView (Views.Index.index { Codes = db.AttendanceCodes |> Seq.toList } ) next ctx
     }
 
+
+let toUtc (dt: DateTime) =
+    if dt.Kind = DateTimeKind.Utc then dt
+    elif dt.Kind = DateTimeKind.Local then dt.ToUniversalTime()
+    else DateTime.SpecifyKind(dt, DateTimeKind.Utc)
+
 let addCodeHandler (next: HttpFunc) (ctx: HttpContext) =
     task {
         let! code = ctx.BindFormAsync<Models.AttendanceCodes.AttendanceCode>()
         if code.Code = 0 || String.IsNullOrWhiteSpace code.Subject || code.DateAdded = DateTime.MinValue then
             return! (setStatusCode 400 >=> text "Invalid input. `code`, `subject`, and `dateAdded` are required.") next ctx
         else
+            code.DateAdded <- toUtc code.DateAdded
             let db = ctx.GetService<Database.AttendanceCodeContext>()
             db.AttendanceCodes.Add(code) |> ignore
             do! db.SaveChangesAsync() |> Async.AwaitTask |> Async.Ignore
