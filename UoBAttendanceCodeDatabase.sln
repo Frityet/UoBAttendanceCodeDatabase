@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UoBAttendanceCodeDatabase.Server", "UoBAttendanceCodeDatabase.Server\UoBAttendanceCodeDatabase.Server.fsproj", "{4276CBA6-2DB4-447D-8398-A1D11C18F959}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UoBAttendanceCodeDatabase.Common", "UoBAttendanceCodeDatabase.Common\UoBAttendanceCodeDatabase.Common.fsproj", "{0536F6CA-C78E-4F88-96D4-6EC659A6B6F6}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UoBAttendanceCodeDatabase.AdminPanel", "UoBAttendanceCodeDatabase.AdminPanel\UoBAttendanceCodeDatabase.AdminPanel.fsproj", "{BF0DB219-DFBB-4F46-99A4-3CCF17A6CAA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{4276CBA6-2DB4-447D-8398-A1D11C18F959}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4276CBA6-2DB4-447D-8398-A1D11C18F959}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4276CBA6-2DB4-447D-8398-A1D11C18F959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0536F6CA-C78E-4F88-96D4-6EC659A6B6F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0536F6CA-C78E-4F88-96D4-6EC659A6B6F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0536F6CA-C78E-4F88-96D4-6EC659A6B6F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0536F6CA-C78E-4F88-96D4-6EC659A6B6F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF0DB219-DFBB-4F46-99A4-3CCF17A6CAA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0DB219-DFBB-4F46-99A4-3CCF17A6CAA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0DB219-DFBB-4F46-99A4-3CCF17A6CAA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0DB219-DFBB-4F46-99A4-3CCF17A6CAA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

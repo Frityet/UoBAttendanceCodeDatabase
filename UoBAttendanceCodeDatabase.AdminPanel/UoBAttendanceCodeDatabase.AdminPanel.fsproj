@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace>UoBAttendanceCodeDatabase.AdminPanel</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- <Compile Include="Clock.fs" /> -->
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+    
+    </ItemGroup>
+</Project>

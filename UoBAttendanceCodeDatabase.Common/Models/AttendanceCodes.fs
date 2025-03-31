@@ -1,4 +1,4 @@
-module UoBAttendanceCodeDatabase.Server.Models.AttendanceCodes
+module UoBAttendanceCodeDatabase.Common.Models.AttendanceCodes
 
 open System
 

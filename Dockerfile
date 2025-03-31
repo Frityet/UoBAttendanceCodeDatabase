@@ -1,9 +1,11 @@
 # Use the official .NET SDK as the build image
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copy the project and restore dependencies
 COPY *.sln ./
+COPY UoBAttendanceCodeDatabase.AdminPanel/*.fsproj ./UoBAttendanceCodeDatabase.AdminPanel/
+COPY UoBAttendanceCodeDatabase.Common/*.fsproj ./UoBAttendanceCodeDatabase.Common/
 COPY UoBAttendanceCodeDatabase.Server/*.fsproj ./UoBAttendanceCodeDatabase.Server/
 RUN dotnet restore
 
@@ -12,7 +14,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Use the official .NET runtime as the base image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
 # Copy the built files from the build image

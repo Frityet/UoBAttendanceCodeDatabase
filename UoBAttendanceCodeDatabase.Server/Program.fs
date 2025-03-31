@@ -2,6 +2,7 @@ module UoBAttendanceCodeDatabase.Server.App
 
 open System
 open System.IO
+open UoBAttendanceCodeDatabase.Common
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Cors.Infrastructure
 open Microsoft.AspNetCore.Hosting

@@ -1,6 +1,6 @@
 module UoBAttendanceCodeDatabase.Server.Views.Index
 
-open UoBAttendanceCodeDatabase.Server
+open UoBAttendanceCodeDatabase.Common
 open Giraffe.ViewEngine
 
 

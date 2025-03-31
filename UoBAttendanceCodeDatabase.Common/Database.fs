@@ -1,9 +1,9 @@
-module UoBAttendanceCodeDatabase.Server.Database
+module UoBAttendanceCodeDatabase.Common.Database
 
 open System
 open Microsoft.EntityFrameworkCore
 open Microsoft.Extensions.Logging
-open UoBAttendanceCodeDatabase.Server.Models.AttendanceCodes
+open UoBAttendanceCodeDatabase.Common
 
 let parseDatabaseUrl (url: string) =
     let uri = Uri url
@@ -28,7 +28,7 @@ type AttendanceCodeContext(logger: ILogger<AttendanceCodeContext>) =
     inherit DbContext()
     
     [<DefaultValue>]
-    val mutable attendanceCodes: DbSet<AttendanceCode>
+    val mutable attendanceCodes: DbSet<Models.AttendanceCodes.AttendanceCode>
     member this.AttendanceCodes
         with get() = this.attendanceCodes
         and set v = this.attendanceCodes <- v
