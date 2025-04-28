@@ -12,6 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-    
+      <ProjectReference Include="..\UoBAttendanceCodeDatabase.Common\UoBAttendanceCodeDatabase.Common.fsproj" />
     </ItemGroup>
 </Project>

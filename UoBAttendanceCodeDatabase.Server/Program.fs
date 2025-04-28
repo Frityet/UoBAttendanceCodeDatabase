@@ -32,7 +32,7 @@ let addCodeHandler (next: HttpFunc) (ctx: HttpContext) =
         else
             code.DateAdded <- toUtc code.DateAdded
             let db = ctx.GetService<Database.AttendanceCodeContext>()
-            db.AttendanceCodes.Add(code) |> ignore
+            db.AttendanceCodes.Add code |> ignore
             do! db.SaveChangesAsync() |> Async.AwaitTask |> Async.Ignore
             return! redirectTo false "/" next ctx
     }
@@ -41,7 +41,7 @@ let addCodeHandler (next: HttpFunc) (ctx: HttpContext) =
 let webApp =
     choose [
         GET >=> choose [
-            route   "/" >=> indexHandler 
+            route "/" >=> indexHandler 
         ]
         POST >=> choose [
             route "/add-code" >=> addCodeHandler
@@ -98,6 +98,7 @@ let configureLogging(builder: ILoggingBuilder) =
 
 [<EntryPoint>]
 let main args =
+
     // Database.initializeDatabase()
     let contentRoot = Directory.GetCurrentDirectory()
     let webRoot     = Path.Combine(contentRoot, "WebRoot")

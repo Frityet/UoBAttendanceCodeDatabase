@@ -36,16 +36,16 @@ type AttendanceCodeContext(logger: ILogger<AttendanceCodeContext>) =
     override this.OnConfiguring(optionsBuilder: DbContextOptionsBuilder) =
         match Environment.GetEnvironmentVariable "DATABASE_URL" with
         | null | "" ->
-            logger.LogWarning("DATABASE_URL not set, using in-memory database.")
+            logger.LogWarning "DATABASE_URL not set, using in-memory database." 
             optionsBuilder.UseInMemoryDatabase("AttendanceCodeDb") |> ignore
         | rawUrl ->
             try
                 let connectionString = parseDatabaseUrl rawUrl
-                logger.LogInformation("Using parsed PostgreSQL connection string.")
+                logger.LogInformation "Using parsed PostgreSQL connection string."
                 optionsBuilder.UseNpgsql(connectionString) |> ignore
             with ex ->
                 logger.LogError(ex, "Failed to configure PostgreSQL, falling back to in-memory.")
-                optionsBuilder.UseInMemoryDatabase("AttendanceCodeDb") |> ignore
+                optionsBuilder.UseInMemoryDatabase "AttendanceCodeDb" |> ignore
 
 
 let initializeDatabase logger =
